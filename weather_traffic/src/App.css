@@ -2,6 +2,30 @@
   text-align: center;
 }
 
+.maindiv {
+  margin: 30px;
+}
+.body {
+  display: flex;
+  flex-direction: row;
+}
+.dateTimediv {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-content: center;
+}
+.header {
+ text-align: center;
+
+}
+.listOfLocation{
+  
+  border-color: black;
+  width: fit-content;
+height: fit-content;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
