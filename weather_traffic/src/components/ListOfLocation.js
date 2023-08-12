@@ -1,36 +1,52 @@
 
 import Image from './image';
 import Weather from './weather';
-import React, {useEffect} from "react";
+import React, {useEffect,useState} from "react";
+import axios from 'axios';
 
 
  function ListOfLocation(props) {
-  
+  const [listOfloc, setListOfloc] = useState([]);
+  const [src, setSrc] = useState({});
+  let dateTime = props.dateTime;
   useEffect(() => {
-    let areaList=[];
-    props.data.image.forEach(element => {
-        const list = props.data.area.find(elem => {
-            return (elem.label_location.latitude === element.location.latitude &&
-             elem.label_location.longitude === element.location.longitude);
-        });
-        console.log(list);
-    });
-    console.log(areaList);
+    function fetchdata() {
+    axios.get('http://localhost:3000/getListOfAreas',{ params: { dateTime: dateTime } })
+    .then(res => { 
+    console.log(res); 
+    setListOfloc(res.data);
   });
-  
+}
+  if(dateTime){
+    fetchdata();
+  }
+     
+  },[dateTime]);
+
+
+  const listarea = listOfloc.map((listItems,index)=>{
+    return(
+            <li key={index}><button onClick={()=>setSrc(listOfloc[index])}>  {listItems.name}</button>
+              
+            </li>
+        );
+});
+
+
   return (
     <>
      <div style={{border: '3px solid black'}}>
        <div>
-       aadya
+        <label>Area available</label>
+       <ul>{listarea}</ul>
        </div>
         </div> 
        <div className='body'>
    <div style={{ margin: '30px',width:"70%"}}>
-   <Image/>
+   <Image src={src.img}/>
    </div>
     <div style={{ margin: '30px', width:"30%"}}>
-         <Weather/>
+         <Weather src={src.weather}/>
          </div>
      
         </div> 

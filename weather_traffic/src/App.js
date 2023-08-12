@@ -1,7 +1,7 @@
 
 import Moment from "moment"
 import React, {useState} from "react";
-import LandingPgae from './LandingPage';
+import LandingPgae from './components/ListOfLocation';
 import './App.css';
 
 function App() {
@@ -17,9 +17,12 @@ const onDateChange = (event) =>{
  const onTimeChange = (event) =>{
   setTime(event.target.value);
 }
-if(date && time){
-  date_time =Moment(`${date} ${time}`, 'YYYY-MM-DD[T]HH:mm:ss (SGT)').format();
-
+const handleSearch = () =>{
+  if(date && time){
+    date_time =Moment(`${date} ${time}`, 'YYYY-MM-DD[T]HH:mm:ss (SGT)').format();
+  
+  }
+  
 }
 
   return (
@@ -36,6 +39,7 @@ if(date && time){
         <span>Enter time</span>
         <input type='time' value={time} onChange={onTimeChange}></input>
       </div>
+      <button onClick={handleSearch}>Search locations</button>
       </div>
       <LandingPgae dateTime={date_time} ></LandingPgae>
     </div>
