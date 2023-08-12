@@ -8,9 +8,10 @@ let weather = [];
 
 @Injectable()
 export class AppService {
-  getListOfAreas(): area[] {
-    this.fetchdata();
+  getListOfAreas(dateTime): area[] {
+    this.fetchdata(dateTime);
     let data = [];
+    
     let locCordinate=[]
     let camCordinates=[];
     camera.forEach((data,index)=>{
@@ -54,7 +55,7 @@ export class AppService {
     var diffY = pt1.longitude - pt2.longitude;
     return (diffX*diffX+diffY*diffY);
 }
-  fetchdata(): void {
+  fetchdata(dateTime): void {
      
     fetch('https://api.data.gov.sg/v1/transport/traffic-images')
     .then((response) => response.json())
