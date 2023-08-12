@@ -1,28 +1,26 @@
 
 import Moment from "moment"
 import React, {useState} from "react";
-import LandingPgae from './components/ListOfLocation';
+import ListOfLocation from './components/ListOfLocation';
 import './App.css';
 
 function App() {
-  let date_time=""
-  const [date, setDate] = useState(null);
-  const [time, setTime] = useState(null);
+ 
+ 
 
 
-  //const [imageData, setImageData] = useState([]);
-const onDateChange = (event) =>{
-      setDate(event.target.value)
- }
- const onTimeChange = (event) =>{
-  setTime(event.target.value);
-}
-const handleSearch = () =>{
-  if(date && time){
-    date_time =Moment(`${date} ${time}`, 'YYYY-MM-DD[T]HH:mm:ss (SGT)').format();
-  
-  }
-  
+const [dateTime, setDateTime] = useState({
+  date:"",
+  time:""
+});
+const [date_time, setdate_time] = useState('');
+const onChangeHandler = (e) => {
+  setDateTime({ ...dateTime, [e.target.name]: e.target.value });
+};
+const handleSearch = (e) =>{
+  e.preventDefault();
+  setdate_time(Moment(`${dateTime.date} ${dateTime.time}`, 'YYYY-MM-DD[T]HH:mm:ss (SGT)').format());
+ 
 }
 
   return (
@@ -30,18 +28,31 @@ const handleSearch = () =>{
     <div className='maindiv'>
       <div className='header'> <h1>Weather Forecast & Traffic Cam</h1>
       </div>
-     <div className='dateTimediv'>
-      <div>
-         <span>Enter date</span>
-          <input type='date' value={date} onChange={onDateChange}></input>
-      </div>
-      <div>
-        <span>Enter time</span>
-        <input type='time' value={time} onChange={onTimeChange}></input>
-      </div>
-      <button onClick={handleSearch}>Search locations</button>
-      </div>
-      <LandingPgae dateTime={date_time} ></LandingPgae>
+      <form onSubmit={handleSearch}>
+        <div>
+          <label>Please enter date</label>
+        <input
+          id="date"
+          value={dateTime.date}
+          onChange={onChangeHandler}
+          name="date"
+          type="date"
+        />
+        </div>
+        <div>
+        <label>Please enter time</label>
+        <input
+          id="time"
+          value={dateTime.time}
+          onChange={onChangeHandler}
+          type="time"
+          name="time"
+        />
+        </div>
+       
+        <button type="submit">Submit</button>
+      </form>
+      <ListOfLocation dateTime={date_time} ></ListOfLocation>
     </div>
     </>
   );

@@ -11,7 +11,7 @@ import axios from 'axios';
   let dateTime = props.dateTime;
   useEffect(() => {
     function fetchdata() {
-    axios.get('http://localhost:3000/getListOfAreas',{ params: { dateTime: dateTime } })
+    axios.get('http://localhost:3001/getListOfAreas',{ params: { dateTime: dateTime } })
     .then(res => { 
     console.log(res); 
     setListOfloc(res.data);
@@ -42,16 +42,17 @@ import axios from 'axios';
        </div>
         </div> 
        <div className='body'>
-   <div style={{ margin: '30px',width:"70%"}}>
-   <Image src={src.img}/>
-   </div>
-    <div style={{ margin: '30px', width:"30%"}}>
+       <div className='weatherDIv'>
          <Weather src={src.weather}/>
          </div>
+   <div className='imgDIv'>
+   <Image src={src.img}/>
+   </div>
+   
      
         </div> 
       
     </>
   );
 }
-export default ListOfLocation;
+export default React.memo(ListOfLocation);

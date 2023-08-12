@@ -8,8 +8,8 @@ let weather = [];
 
 @Injectable()
 export class AppService {
-  getListOfAreas(dateTime): area[] {
-    this.fetchdata(dateTime);
+  getListOfAreas(): area[] {
+    this.fetchdata();
     let data = [];
     let locCordinate=[]
     let camCordinates=[];
@@ -50,11 +50,11 @@ export class AppService {
   }
 
  DistSquared(pt1, pt2) : number{
-    var diffX = pt1.x - pt2.x;
-    var diffY = pt1.y - pt2.y;
+    var diffX = pt1.latitude - pt2.latitude;
+    var diffY = pt1.longitude - pt2.longitude;
     return (diffX*diffX+diffY*diffY);
 }
-  fetchdata(dateTime): void {
+  fetchdata(): void {
      
     fetch('https://api.data.gov.sg/v1/transport/traffic-images')
     .then((response) => response.json())
@@ -68,7 +68,6 @@ export class AppService {
       location = json.area_metadata;
       weather = json.items[0].forecasts;
     });
-      console.log(dateTime);
   }
 
   getHello(): string {

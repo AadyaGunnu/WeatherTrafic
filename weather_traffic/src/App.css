@@ -6,9 +6,20 @@
   margin: 30px;
 }
 .body {
-  display: flex;
-  flex-direction: row;
+  align-content: center;
 }
+.imgDIv {
+   min-width: 30px;
+   min-height: 30px;
+   margin: 5px;
+}
+
+.weatherDIv {
+  min-width: 30px;
+   min-height: 30px;
+   margin: 5px;
+}
+
 .dateTimediv {
   text-align: center;
   display: flex;

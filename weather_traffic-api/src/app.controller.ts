@@ -8,7 +8,7 @@ export class getListOfAreas {
   @Get()
   findAll(@Query() query: { dateTime: string }): area[]  {
     console.log('ïn controler');
-    let finalresult = this.appService.getListOfAreas(query.dateTime)
+    let finalresult = this.appService.getListOfAreas()
     return finalresult;
   }
 }
