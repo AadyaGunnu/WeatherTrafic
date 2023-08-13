@@ -10,8 +10,9 @@
   
 }
 .body {
-  align-content: center;
-
+  float: right;
+  width: 65%;
+  
 }
 
 .weatherIcon{
@@ -24,14 +25,15 @@
   border-color: #282c34;
   background-color: white;
   border-radius: "5px";
+  margin-top: 5px;
   display: flex;
   width: fit-content;
   align-content: center;
   position: relative;
-  border: 5px solid;
-  margin: auto;
-  width: fit-content;
-  padding: 10px;
+  border: 3px solid;
+  
+  width: 85%;
+ 
   
 }
 .button {
@@ -41,17 +43,15 @@
   backgroundColor: white;
   borderRadius: "10px";
   position: "relative";
-  overflow: "hidden";
+  overflow: scroll;
   border: 3px solid;
-  margin: auto;
+
   width: fit-content;
-  padding: 10px;
 }
 
 .weatherDIv {
   min-width: 30px;
    min-height: 30px;
-   margin: 5px;
    display: flex;
    flex-direction: column;
 }
@@ -60,14 +60,31 @@
   width:50%;
   margin-left: 25%;
 }
+.mainBody{
+  height :auto;
+  overflow-y: auto;
+}
+
+.text {
+  color: darkslategrey;
+  
+}
+.text :hover{
+  color: red;
+  
+}
 .lostOfloc {
+  text-align: center;
+text-decoration-color: darkgray;
+
   border: #282c34;
   border-style: solid;
   border-width: "2px";
-  width:50%;
-  height: 100px;
-  margin-left: 25%;
- overflow-y: scroll;
+  float: left;
+  width:30%;
+ height: 450Px;
+  overflow: auto;
+  scroll-behavior: auto;
  
 }
 .dateTimediv {

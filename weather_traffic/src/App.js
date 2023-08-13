@@ -23,39 +23,40 @@ function App() {
   };
 
   return (
-    <>
-      <div className="maindiv">
-        <div className="header">
-          {" "}
-          <h1>Weather Forecast & Traffic Cam</h1>
+    <div className="maindiv">
+      <div className="header">
+        {" "}
+        <h1>Weather Forecast & Traffic Cam</h1>
+      </div>
+      <form onSubmit={handleSearch} className="form">
+        <div>
+          <label>Please enter date : </label>
+          <input
+            id="date"
+            value={dateTime.date}
+            onChange={onChangeHandler}
+            name="date"
+            type="date"
+          />
         </div>
-        <form onSubmit={handleSearch} className="form">
-          <div>
-            <label>Please enter date : </label>
-            <input
-              id="date"
-              value={dateTime.date}
-              onChange={onChangeHandler}
-              name="date"
-              type="date"
-            />
-          </div>
-          <div>
-            <label>Please enter time : </label>
-            <input
-              id="time"
-              value={dateTime.time}
-              onChange={onChangeHandler}
-              type="time"
-              name="time"
-            />
-          </div>
+        <div>
+          <label>Please enter time : </label>
+          <input
+            id="time"
+            value={dateTime.time}
+            onChange={onChangeHandler}
+            type="time"
+            name="time"
+          />
+        </div>
 
-          <button type="submit">Submit</button>
-        </form>
+        <button type="submit">Submit</button>
+      </form>
+      <div className="mainBody">
+        {" "}
         <ListOfLocation dateTime={date_time}></ListOfLocation>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -6,7 +6,10 @@ import axios from "axios";
 function ListOfLocation(props) {
   const [listOfloc, setListOfloc] = useState([]);
   const [src, setSrc] = useState({});
+  const [area, setarea] = useState([]);
   let dateTime = props.dateTime;
+  let uniqueAreas = [];
+  //let data = [];
   useEffect(() => {
     function fetchdata() {
       axios
@@ -15,21 +18,33 @@ function ListOfLocation(props) {
         })
         .then((res) => {
           console.log(res);
-          setListOfloc(res.data);
+          setarea(res.data);
+          //  setListOfloc(res.data);
+          removeDups();
         });
     }
-    if (dateTime) {
+    if (dateTime !== "" && dateTime !== "Invalid date") {
       fetchdata();
     }
   }, [dateTime]);
 
+  const removeDups = function () {
+    let temparr = [];
+    area.forEach((entry) => {
+      temparr.push(entry.name);
+    });
+    uniqueAreas = [...new Set(temparr)];
+    temparr = [];
+    setListOfloc(uniqueAreas);
+  };
+  const getWetaher = function (e) {
+    let temp = area.find((inst) => inst.name === e);
+    setSrc(temp);
+  };
   const listarea = listOfloc.map((listItems, index) => {
     return (
-      <ul key={index}>
-        <button className="button" onClick={() => setSrc(listOfloc[index])}>
-          {" "}
-          {listItems.name}
-        </button>
+      <ul key={index} onClick={(e) => getWetaher(e.target.textContent)}>
+        {listItems}
       </ul>
     );
   });
@@ -38,7 +53,7 @@ function ListOfLocation(props) {
     <>
       <div className="lostOfloc">
         <label>Area available</label>
-        <ul>{listarea}</ul>
+        <ul className="text">{listarea}</ul>
       </div>
       <div className="body">
         <div className="weatherDIv">

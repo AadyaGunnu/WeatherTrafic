@@ -50,7 +50,7 @@ export default function Image(props) {
   }, [imageRef, scale]);
 
   return (
-    <div className="imgDIv">
+    <div>
       <div className="btn-container">
         <button onClick={handleZoomIn}>
           <span>Zoom In</span>
@@ -59,19 +59,20 @@ export default function Image(props) {
           <span>Zoom out</span>
         </button>
       </div>
-
-      <img
-        ref={imageRef}
-        src={props.src ? props.src : defaultImg}
-        alt=""
-        style={{
-          width: "50vw",
-          height: "auto",
-          transform: `scale(${scale}) translate(${position.x}px, ${position.y}px)`,
-          cursor: "move",
-        }}
-        draggable={false}
-      />
+      <div className="imgDIv">
+        <img
+          ref={imageRef}
+          src={props.src ? props.src : defaultImg}
+          alt=""
+          style={{
+            width: "50vw",
+            height: "auto",
+            transform: `scale(${scale}) translate(${position.x}px, ${position.y}px)`,
+            cursor: "move",
+          }}
+          draggable={false}
+        />
+      </div>
     </div>
   );
 }

@@ -11,11 +11,11 @@ export default function weather(props) {
       image = require("../image/sunny.png");
       break;
     }
-    case "Rain": {
+    case "Light Rain": {
       image = require("../image/rainny.png");
       break;
     }
-    case "Thunder": {
+    case "Showers": {
       image = require("../image/thunder.png");
       break;
     }
@@ -28,7 +28,7 @@ export default function weather(props) {
       break;
     }
     default:
-      image = require("../image/particallycloudy.png");
+      image = require("../image/default.png");
       break;
   }
   return (
