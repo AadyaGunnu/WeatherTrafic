@@ -51,16 +51,19 @@ function ListOfLocation(props) {
 
   return (
     <>
-      <div className="lostOfloc">
-        <label>Area available</label>
-        <ul className="text">{listarea}</ul>
-      </div>
       <div className="body">
-        <div className="weatherDIv">
-          <Weather src={src.weather} />
+        <div className="listOfloc">
+          <h1>Area available</h1>
+          <ul className="text">{listarea}</ul>
         </div>
-        <div>
-          <Image src={src.img} />
+        <div className="weatherTrffic">
+          {" "}
+          <div>
+            <Weather src={src.weather} />
+          </div>
+          <div>
+            <Image src={src.img} />
+          </div>
         </div>
       </div>
     </>

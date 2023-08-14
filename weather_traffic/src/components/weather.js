@@ -33,16 +33,16 @@ export default function weather(props) {
   }
   return (
     <div className="weatherDiv">
-      <div>{props.src ? props.src : "weather"}</div>
-      <div className="weatherIcon">
-        <img
-          style={{
-            width: "20px",
-            height: "20px",
-          }}
-          src={image}
-        />
-      </div>
+      <ul className="weather">{props.src ? props.src : "weather"}</ul>
+
+      <img
+        className="weatherIcon"
+        style={{
+          width: "50px",
+          height: "50px",
+        }}
+        src={image}
+      />
     </div>
   );
 }

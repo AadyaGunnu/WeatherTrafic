@@ -4,7 +4,7 @@ export default function Image(props) {
   const [scale, setScale] = useState(1);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const imageRef = useRef(null);
-  const defaultImg = require("../image/travel-updates-emergency-areas.jpg");
+  const defaultImg = require("../image/landingInage.jpg");
   const handleZoomIn = () => {
     setScale((scale) => scale + 0.1);
   };

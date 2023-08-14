@@ -26,7 +26,7 @@ function App() {
     <div className="maindiv">
       <div className="header">
         {" "}
-        <h1>Weather Forecast & Traffic Cam</h1>
+        <h1 className="h1">Weather Forecast & Traffic Cam</h1>
       </div>
       <form onSubmit={handleSearch} className="form">
         <div>
@@ -53,7 +53,6 @@ function App() {
         <button type="submit">Submit</button>
       </form>
       <div className="mainBody">
-        {" "}
         <ListOfLocation dateTime={date_time}></ListOfLocation>
       </div>
     </div>
