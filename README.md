@@ -35,6 +35,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
+<img width="635" alt="image" src="https://github.com/AadyaGunnu/WeatherTrafic/assets/102150537/99fbc6f0-d928-49a9-ba69-e01fa9253d6c">
 
 ## features
 Choose a date and time and click on button 'Search location available',  a list of locations with traffic cam photos will apear for the specified date and time.
