@@ -58,10 +58,10 @@ function ListOfLocation(props) {
         </div>
         <div className="weatherTrffic">
           {" "}
-          <div>
+          <div className="divWeather">
             <Weather src={src.weather} />
           </div>
-          <div>
+          <div className="divImg">
             <Image src={src.img} />
           </div>
         </div>

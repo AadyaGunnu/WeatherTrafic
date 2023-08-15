@@ -1,6 +1,11 @@
 .App {
   text-align: center;
 }
+
+.divWeather {
+ display: flex;
+ justify-content: center;
+}
 .maindiv {
   margin: 5px;
   background-color: lightcyan;
@@ -39,7 +44,7 @@
     float: left;
     max-height: 500px;
     overflow-y: scroll;
-   
+    min-width: 300px;
     width: 30%;
    
   }
@@ -48,29 +53,81 @@
     margin-left: 15%;
     flex-direction: row;
     
-    width: 100%;
+    width: 80%;
     background-color: lightcyan;
+  }
+  .divImg {
+
   }
 
   @media (max-width: 800px) {
     .body {
       flex-direction: column;
     }
+
+    
   }
+
+  .btn-container {
+     display: flex;
+     justify-content: center;
+     margin: 10px;
+     padding-left: 10px;
+  }
+
+  
   @media (max-width: 800px) {
     .weatherDiv {
       margin-left: 0px;
+    }
+    .divWeather {
+      display: flex;
+      justify-content: center;
+
+    }
+    .divImg {
+      display: flex;
+      justify-content: center;
     }
   }
   .weatherTrffic{
      align-items: center;
     
   }
+  @media (max-width: 800px) {
+    .weatherDiv {
+      margin-left: 0px;
+    }
+    .divWeather {
+     justify-content: center;
+      width: 100%;
+    }
+    .btn-container {
+     margin-left: 10%;
+      justify-content: flex-start;
+   }
+   .listOfloc {
+  
+    text-decoration-color: darkgray;
+      border: #282c34;
+      border-style: solid;
+      border-width: "2px";
+      border-radius: 5px;
+      float: left;
+      max-height: 200px;
+      overflow-y: scroll;
+      min-width: 300px;
+      width: 30%;
+     
+    }
+    
+  }
 
   .weather {
     font-size: 20px;
-    margin-left: 0px;
+    margin-right: 5px;
    text-decoration: wavy;
+   
   }
 
   .weatherIcon{
@@ -82,10 +139,11 @@
     width: 100%;
     max-width: fit-content;
     display: flex;
+    justify-content: center;
   margin-left: 5%;
     align-items: center;
     flex-direction: row;
-    border-radius: 40px;
+    border-radius: 10px;
     border: "3px";
     background-color: white;
     border-style: solid;
