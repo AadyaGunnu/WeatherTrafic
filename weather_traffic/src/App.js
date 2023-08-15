@@ -50,7 +50,7 @@ function App() {
           />
         </div>
 
-        <button type="submit">Submit</button>
+        <button type="submit">Search location available</button>
       </form>
       <div className="mainBody">
         <ListOfLocation dateTime={date_time}></ListOfLocation>
